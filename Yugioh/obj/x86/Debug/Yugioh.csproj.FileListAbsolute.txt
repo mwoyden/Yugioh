@@ -1,0 +1,106 @@
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\Yugioh.exe
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\Yugioh.pdb
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Mike\source\repos\Yugioh\Yugioh\obj\x86\Debug\Yugioh.csprojAssemblyReference.cache
+C:\Users\Mike\source\repos\Yugioh\Yugioh\obj\x86\Debug\Yugioh.csproj.CoreCompileInputs.cache
+C:\Users\Mike\source\repos\Yugioh\Yugioh\obj\x86\Debug\Yugioh.csproj.CopyComplete
+C:\Users\Mike\source\repos\Yugioh\Yugioh\obj\x86\Debug\Yugioh.exe
+C:\Users\Mike\source\repos\Yugioh\Yugioh\obj\x86\Debug\Yugioh.pdb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Yugioh.exe
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Yugioh.pdb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D9.dll
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\obj\x86\Debug\Yugioh.csproj.CoreCompileInputs.cache
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\obj\x86\Debug\Yugioh.csproj.CopyComplete
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\obj\x86\Debug\Yugioh.exe
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\obj\x86\Debug\Yugioh.pdb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\obj\x86\Debug\Yugioh.csprojAssemblyReference.cache
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\mystical_elf.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\ancient_elf.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\ansatsu.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\baron_of_the_fiend_sword.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\beaver_warrior.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\book_of_secret_arts.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\card_destruction.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\castle_walls.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\celtic_guardian.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\change_of_heart.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\claw_reacher.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\curse_of_dragon.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\dark_hole.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\dark_magician.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\de-spell.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\dian_keto_the_cure_mater.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\doma_the_angel_of_silence.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\dragon_capture_jar.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\dragon_zombie.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\feral_imp.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\fissure.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\gaia_the_firece_knigt.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\giant_soldier_of_stone.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\great_white.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\last_will.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\magical_ghost.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\mammoth_graveyard.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\man-eater_bug.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\man-eating_treasure_chest.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\monster_reborn.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\mystic_clown.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\neo_the_magic_sowrdsman.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\reinforcements.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\remove_trap.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\reverse_trap.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\silver_fang.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\sorcerer_of_the_doomed.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\soul_exchange.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\summoned_skull.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\sword_of_dark_destruction.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\the_stern_mystic.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\trap_hole.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\trap_master.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\two_pronged_attack.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\ultimate_offering.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\waboku.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\wall_of_illusion.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\witty_phantom.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\yami.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\winged_dragon_guardian_of_the_fortress_1.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\gaia_the_firece_knight.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\gaia_the_fierce_knight.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\dian_keto_the_cure_master.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\neo_the_magic_swordsman.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\player_mat.xnb
+C:\Users\Mike\Documents\Visual Studio 2017\Projects\Yugioh\Yugioh\bin\Windows\x86\Debug\Content\images\card_back.xnb

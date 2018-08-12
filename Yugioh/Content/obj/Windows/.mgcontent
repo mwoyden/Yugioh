@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/mystical_elf.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/ancient_elf.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/ansatsu.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/baron_of_the_fiend_sword.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/beaver_warrior.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/book_of_secret_arts.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/card_destruction.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/castle_walls.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/celtic_guardian.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/change_of_heart.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/claw_reacher.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/curse_of_dragon.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/dark_hole.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/dark_magician.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/de-spell.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/doma_the_angel_of_silence.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/dragon_capture_jar.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/dragon_zombie.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/feral_imp.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/fissure.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/giant_soldier_of_stone.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/great_white.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/last_will.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/magical_ghost.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/mammoth_graveyard.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/man-eater_bug.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/man-eating_treasure_chest.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/monster_reborn.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/mystic_clown.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/reinforcements.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/remove_trap.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/reverse_trap.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/silver_fang.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/sorcerer_of_the_doomed.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/soul_exchange.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/summoned_skull.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/sword_of_dark_destruction.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/the_stern_mystic.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/trap_hole.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/trap_master.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/two_pronged_attack.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/ultimate_offering.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/waboku.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/wall_of_illusion.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/witty_phantom.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/yami.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/winged_dragon_guardian_of_the_fortress_1.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/gaia_the_fierce_knight.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/dian_keto_the_cure_master.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/neo_the_magic_swordsman.png</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/player_mat.jpg</File>
+    <File>C:/Users/Mike/Documents/Visual Studio 2017/Projects/Yugioh/Yugioh/Content/images/card_back.png</File>
+  </SourceFiles>
+</SourceFileCollection>
