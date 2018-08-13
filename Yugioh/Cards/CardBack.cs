@@ -10,13 +10,17 @@ namespace Yugioh.Cards
         /// <summary>
         /// Back of a card. Used for decks, face down cards, etc.
         /// </summary>
-        /// <param name="spriteManager">Contains car_back sprite</param>
-        /// <param name="x">x position on screen</param>
-        /// <param name="y">y position on screen</param>
-        public CardBack(SpriteManager spriteManager, float x, float y)
+        /// <param name="spriteManager">Contains cardBackk sprite</param>
+        /// <param name="position">position on screen</param>
+        public CardBack(SpriteManager spriteManager, Vector2 position)
         {
             sprite = spriteManager.cardBack;
-            position = new Vector2(x, y);
+        }
+
+        public CardBack(Texture2D sprite, Vector2 position)
+        {
+            this.sprite = sprite;
+            this.position = position;
         }
     }
 }

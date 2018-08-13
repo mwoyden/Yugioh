@@ -2,10 +2,11 @@
 using Microsoft.Xna.Framework;
 using System;
 using Yugioh.GameComponents;
+using Yugioh.Cards.CardProperties;
 
 namespace Yugioh.Cards
 {
-    abstract class Card : IDrawable
+    class Card : IDrawable
     {
         public Texture2D sprite = null;
         public Vector2 position = new Vector2(0, 0);
@@ -14,7 +15,8 @@ namespace Yugioh.Cards
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, position, null, Color.White, 0, new Vector2(0, 0), 0.2f, SpriteEffects.None, 1.0f);
+            if (sprite != null)
+                spriteBatch.Draw(sprite, position, null, Color.White, 0, new Vector2(0, 0), 0.22f, SpriteEffects.None, 1.0f);
         }
 
         public void Update(GameTime gameTime)
@@ -22,17 +24,12 @@ namespace Yugioh.Cards
             // something?
         }
 
-        public void Apply(Player player)
+        public void Apply(Player player, Field field, Card card)
         {
             // nothing
         }
 
-        public void Apply(Field field)
-        {
-            // nothing
-        }
-
-        public void Apply(Card card)
+        public void Apply(Player player, Field field, MonsterCard card)
         {
             // nothing
         }

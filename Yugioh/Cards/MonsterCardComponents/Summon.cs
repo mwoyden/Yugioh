@@ -6,22 +6,47 @@ namespace Yugioh.Cards.MonsterCardComponents
 {
     class Summon : MonsterCard
     {
-        public new void Apply(Player player)
+        public static new void Apply(Player player, Field field, MonsterCard card)
         {
-            player.Play(this);
-        }
+            bool canSummon = true;
 
-        public new void Apply(Field field)
-        {
-            if (field.monsterZone.Count < 5)
-                field.monsterZone.Add(this);
-            else
-                Console.WriteLine("Already 5 monsters on the field.");
-        }
+            // Order of application here is important.
+            // Apply to player
+            canSummon = player.Play(card);
+            if (!canSummon)
+                return;
 
-        public new void Apply(MonsterCard monster)
-        {
-            monster.mode = MonsterPosition.ATTACK;
+            // Apply to card BEFORE summoning to field.
+            card.mode = MonsterPosition.ATTACK;
+
+            // Apply to field
+            // Check for full monster zone
+            int count = 0;
+            foreach (Card c in field.monsterZone)
+                if (c.sprite != null)
+                    count++;
+            if (count == 5)
+            {
+                canSummon = false;
+                throw new Exception("Shouldn't be summoning cards fren");
+            }
+            // Inadequate field space
+            if (!canSummon)
+            {
+                player.Draw(card); // Reverse summon in case of failure
+                return;
+            }
+
+            // If it's not full, summon at leftmost position (can't fail?)
+            for (int i = 0; i < 5; i++)
+            {
+                if (field.monsterZone[i].sprite == null)
+                {
+                    field.monsterZone.RemoveAt(i);
+                    field.monsterZone.Insert(i, card);
+                    break;
+                }
+            }
         }
     }
 }

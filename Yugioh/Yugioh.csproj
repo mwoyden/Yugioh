@@ -106,6 +106,8 @@
     <Compile Include="Cards\TrapCards\Waboku.cs" />
     <Compile Include="Cards\TrapCards\TwoProngedAttack.cs" />
     <Compile Include="Cards\TrapCards\TrapHole.cs" />
+    <Compile Include="GameComponents\SelectedArea.cs" />
+    <Compile Include="GameComponents\Selector.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="Frame.cs" />
     <Compile Include="Game1.cs" />

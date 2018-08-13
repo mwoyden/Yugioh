@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Yugioh.Cards;
 
 namespace Yugioh.GameComponents
@@ -12,8 +13,33 @@ namespace Yugioh.GameComponents
         {
             name = "You";
             lifePoints = 8000;
-            hand = new List<Card>();
+            hand = new List<Card>()
+            {
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card()
+            };
             sacrificed = new List<MonsterCard>();
+        }
+
+        internal class Builder
+        {
+            public HumanPlayer player = new HumanPlayer();
+
+            public Builder WithHandPositions(List<Vector2> positions)
+            {
+                player.handPositions = positions;
+                return this;
+            }
+
+            public HumanPlayer Build()
+            {
+                return this.player;
+            }
         }
     }
 }

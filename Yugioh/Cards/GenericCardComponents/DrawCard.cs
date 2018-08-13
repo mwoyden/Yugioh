@@ -4,19 +4,13 @@ namespace Yugioh.Cards.GenericCardComponents
 {
     class DrawCard : Card
     {
-        public new void Apply(Player player)
+        public static new void Apply(Player player, Field field, Card card = null)
         {
-            player.Draw(this);
-        }
-
-        public new void Apply(Field field)
-        {
-            field.deck.Remove(this);
-        }
-
-        public new void Apply(Card card)
-        {
-            // nothing
+            // Apply to field and player
+            if (field.deck.Count == 0)
+                return;
+            player.Draw(field.deck[0]);
+            field.deck.RemoveAt(0);
         }
     }
 }

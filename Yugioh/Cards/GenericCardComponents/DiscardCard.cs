@@ -4,19 +4,11 @@ namespace Yugioh.Cards.GenericCardComponents
 {
     class DiscardCard : Card
     {
-        public new void Apply(Player player)
+        public static new void Apply(Player player, Field field, Card card)
         {
-            player.Discard(this);
-        }
-
-        public new void Apply(Field field)
-        {
-            field.graveYard.Add(this);
-        }
-
-        public new void Apply(Card card)
-        {
-            // nothing
+            // Apply to field and player
+            player.Discard(card);
+            field.graveYard.Add(card);
         }
     }
 }
