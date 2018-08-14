@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Yugioh.Cards;
 using Yugioh.Cards.GenericCardComponents;
@@ -11,6 +12,7 @@ using Yugioh.Cards.MonsterCardComponents;
 using Yugioh.Cards.MonsterCards;
 using Yugioh.Cards.TrapCards;
 using Yugioh.GameComponents;
+using Yugioh.GameComponents.SelectorHandlers;
 
 namespace Yugioh
 {
@@ -60,6 +62,13 @@ namespace Yugioh
             new Vector2(WIDTH * 0.5126f, HEIGHT * 0.6467f),
         };
 
+        // Selector constants
+        private static readonly List<Vector2> selectorPositions = new List<Vector2>()
+        {
+            new Vector2(810, 696), //[0]
+            new Vector2(960, 696)  //[1]
+        };
+
         // Stuff in the game
         Frame startFrame;
         Frame currentFrame;
@@ -69,9 +78,21 @@ namespace Yugioh
         Field p2Field;
         List<Card> p1Deck;
         List<Card> p2Deck;
-        // Selector
+
+        // Selector / handlers
         Selector selector;
         KeyboardState previousState;
+        HandleInP1Hand handleInP1Hand;
+        HandleInP1MagicAndTrapZone handleInP1MagicAndTrapZone;
+        HandleInP1MonsterZone handleInP1MonsterZone;
+        HandleInP1FieldZone handleInP1FieldZone;
+        HandleSummoning handleSummoning;
+        HandleSettingMonster handleSettingMonster;
+        HandleSettingMagic handleSettingMagic;
+        HandleSettingTrap handleSettingTrap;
+        HandleSummonOrSet handleSummonOrSet;
+        HandleSetOrActivate handleSetOrActivate;
+        Dictionary<SelectedState, ISelectorHandler> selectionHandlers;
 
         public Game1()
         {
@@ -130,35 +151,19 @@ namespace Yugioh
                 .WithFieldCardPosition(p1FieldZonePosition)
                 .Build();
 
-            // Begin stuff?
-            DrawCard.Apply(p1, p1Field);
-            DrawCard.Apply(p1, p1Field);
-            DrawCard.Apply(p1, p1Field);
-            DrawCard.Apply(p1, p1Field);
-            DrawCard.Apply(p1, p1Field);
-
-            // TEST FUNCTIONALITY
-            //DrawCard.Apply(p1, p1Field);
-            //Summon.Apply(p1, p1Field, (MonsterCard)p1.hand[0]);
-            //DrawCard.Apply(p1, p1Field);
-            //SetMonster.Apply(p1, p1Field, (MonsterCard)p1.hand[0]);
-            //DrawCard.Apply(p1, p1Field);
-            //DrawCard.Apply(p1, p1Field);
-            //DrawCard.Apply(p1, p1Field);
-            //SetMagic.Apply(p1, p1Field, p1.hand[2]);
-            //Sacrifice.Apply(p1, p1Field, (MonsterCard)p1Field.monsterZone[0]);
-            //Sacrifice.Apply(p1, p1Field, (MonsterCard)p1Field.monsterZone[1]);
-            //SetMonster.Apply(p1, p1Field, (MonsterCard)p1.hand[0]);
-            //DiscardCard.Apply(p1, p1Field, p1.hand[1]);
-            //DrawCard.Apply(p1, p1Field);
-            //SetTrap.Apply(p1, p1Field, p1.hand[0]);
-
             p2Deck = new List<Card>();
             Field.Builder p2FieldBuilder = new Field.Builder();
             p2Field = p2FieldBuilder
                 .WithDeckSpriteAndPosition(spriteManager.cardBack, p2DeckPosition)
                 .WithDeck(p2Deck)
                 .Build();
+
+            // Begin stuff?
+            DrawCard.Apply(p1, p1Field);
+            DrawCard.Apply(p1, p1Field);
+            DrawCard.Apply(p1, p1Field);
+            DrawCard.Apply(p1, p1Field);
+            DrawCard.Apply(p1, p1Field);
         }
 
         // Still testing this
@@ -175,8 +180,37 @@ namespace Yugioh
         // Initialize the UI 
         private void InitSelector(SpriteBatch spriteBatch) 
         {
-            selector = new Selector(spriteBatch, p1.hand[0]);
-            previousState = Keyboard.GetState();
+            selector = new Selector(spriteBatch, p1.hand[0]); // start the selector at the first card position
+            previousState = Keyboard.GetState(); // for dealing with single-key-press movements 
+        }
+
+        private void InitSelectorHandlers()
+        {
+            // initialize the handlers
+            handleInP1Hand = new HandleInP1Hand();
+            handleInP1MagicAndTrapZone = new HandleInP1MagicAndTrapZone();
+            handleInP1MonsterZone = new HandleInP1MonsterZone();
+            handleInP1FieldZone = new HandleInP1FieldZone();
+            handleSummoning = new HandleSummoning();
+            handleSettingMonster = new HandleSettingMonster();
+            handleSettingMagic = new HandleSettingMagic();
+            handleSettingTrap = new HandleSettingTrap();
+            handleSummonOrSet = new HandleSummonOrSet();
+            handleSetOrActivate = new HandleSetOrActivate();
+
+            selectionHandlers = new Dictionary<SelectedState, ISelectorHandler>()
+            {
+                { SelectedState.P1_HAND, handleInP1Hand },
+                { SelectedState.P1_MAGIC_AND_TRAP_ZONE, handleInP1MagicAndTrapZone },
+                { SelectedState.P1_MONSTER_ZONE, handleInP1MonsterZone },
+                { SelectedState.P1_FIELD_ZONE, handleInP1FieldZone },
+                { SelectedState.SUMMONING, handleSummoning },
+                { SelectedState.SETTING_MONSTER, handleSettingMonster },
+                { SelectedState.SETTING_MAGIC, handleSettingMagic },
+                { SelectedState.SETTING_TRAP, handleSettingTrap },
+                { SelectedState.SUMMON_OR_SET, handleSummonOrSet },
+                { SelectedState.SET_OR_ACTIVATE, handleSetOrActivate }
+            };
         }
 
         /// <summary>
@@ -197,6 +231,9 @@ namespace Yugioh
 
             // initialize the selector thing
             InitSelector(spriteBatch);
+
+            // initialize the selector handlers (for handling your input dipshit)
+            InitSelectorHandlers();
 
             // initialize the startFrame and set it to the currentFrame
             InitFrames();
@@ -223,8 +260,10 @@ namespace Yugioh
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || state.IsKeyDown(Keys.Escape))
                 Exit();
 
-            UpdateSelector(state);
+            // Update selector
+            selectionHandlers[selector.state].Handle(selector, p1, p2, p1Field, p2Field, state, previousState);
 
+            // for testing
             if (state.IsKeyDown(Keys.D) && previousState.IsKeyUp(Keys.D))
                 DrawCard.Apply(p1, p1Field);
 
@@ -232,129 +271,6 @@ namespace Yugioh
             previousState = state;
 
             base.Update(gameTime);
-        }
-
-        private void UpdateSelector(KeyboardState state)
-        {
-            if (selector.area.Equals(SelectedArea.P1_HAND))
-                HandleInP1Hand(state);
-            else if (selector.area.Equals(SelectedArea.P1_MAGIC_AND_TRAP_ZONE))
-                HandleInP1MagicAndTrapZone(state);
-            else if (selector.area.Equals(SelectedArea.P1_MONSTER_ZONE))
-                HandleInP1MonsterZone(state);
-            else if (selector.area.Equals(SelectedArea.P1_FIELD_ZONE))
-                HandleInP1FieldZone(state);
-        }
-
-        private void HandleInP1Hand(KeyboardState state)
-        {
-            // Handles left and right
-            HandleLeftRightWithMaxIndex(state, 6);
-            if (p1.hand[selector.index].sprite == null)
-                selector.defaultCardPosition = p1.handPositions[selector.index];
-            selector.selected = p1.hand[selector.index];
-
-            // Handles up and down
-            HandleUpAndDown(state, SelectedArea.P1_MAGIC_AND_TRAP_ZONE, p1Field.magicAndTrapZone, p1Field.magicAndTrapPositions,
-                                    SelectedArea.P2_MAGIC_AND_TRAP_ZONE, p2Field.magicAndTrapZone, p2Field.magicAndTrapPositions);
-        }
-
-        private void HandleInP1MagicAndTrapZone(KeyboardState state)
-        {
-            // Handles left and right
-            HandleLeftRightWithMaxIndex(state, 4);
-            if (p1Field.magicAndTrapZone[selector.index].sprite == null)
-                selector.defaultCardPosition = p1Field.magicAndTrapPositions[selector.index];
-            selector.selected = p1Field.magicAndTrapZone[selector.index];
-
-            // Handles up and down
-            HandleUpAndDown(state, SelectedArea.P1_MONSTER_ZONE, p1Field.monsterZone, p1Field.monsterPositions,
-                                    SelectedArea.P1_HAND, p1.hand, p1.handPositions);
-        }
-
-        private void HandleInP1MonsterZone(KeyboardState state)
-        {
-            // Handles left and right
-            HandleLeftRightWithFieldZone(state);
-            if (p1Field.monsterZone[selector.index].sprite == null)
-                selector.defaultCardPosition = p1Field.monsterPositions[selector.index];
-            selector.selected = p1Field.monsterZone[selector.index];
-
-            // Handles up and down
-            HandleUpAndDown(state, SelectedArea.P2_MONSTER_ZONE, p2Field.monsterZone, p2Field.monsterPositions,
-                                    SelectedArea.P1_MAGIC_AND_TRAP_ZONE, p1Field.magicAndTrapZone, p1Field.magicAndTrapPositions);
-        }
-
-        private void HandleInP1FieldZone(KeyboardState state)
-        {
-            if (state.IsKeyDown(Keys.Left) && previousState.IsKeyUp(Keys.Left))
-            {
-                selector.area = SelectedArea.P1_MONSTER_ZONE;
-                selector.index = 4;
-            }
-            else if (state.IsKeyDown(Keys.Right) && previousState.IsKeyUp(Keys.Right))
-            {
-                selector.area = SelectedArea.P1_MONSTER_ZONE;
-                selector.index = 0;
-            }
-            if (p1Field.fieldZone.sprite == null)
-                selector.defaultCardPosition = p1Field.fieldCardPosition;
-            selector.selected = p1Field.fieldZone;
-        }
-
-        private void HandleLeftRightWithFieldZone(KeyboardState state)
-        {
-            if (state.IsKeyDown(Keys.Right) && previousState.IsKeyUp(Keys.Right))
-            {
-                if (selector.index == 4)
-                    selector.area = SelectedArea.P1_FIELD_ZONE;
-                else
-                    selector.index++;
-            }
-            else if (state.IsKeyDown(Keys.Left) && previousState.IsKeyUp(Keys.Left))
-            {
-                if (selector.index == 0)
-                    selector.area = SelectedArea.P1_FIELD_ZONE;
-                else
-                    selector.index--;
-            }
-        }
-
-        private void HandleLeftRightWithMaxIndex(KeyboardState state, int max)
-        {
-            if (state.IsKeyDown(Keys.Right) && previousState.IsKeyUp(Keys.Right))
-            {
-                if (selector.index == max)
-                    selector.index = 0;
-                else
-                    selector.index++;
-            }
-            else if (state.IsKeyDown(Keys.Left) && previousState.IsKeyUp(Keys.Left))
-            {
-                if (selector.index == 0)
-                    selector.index = max;
-                else
-                    selector.index--;
-            }
-        }
-
-        private void HandleUpAndDown(KeyboardState state, SelectedArea toUpArea, List<Card> toUpZone, List<Vector2> defaultUpPositions,
-                                                  SelectedArea toDownArea, List<Card> toDownZone, List<Vector2> defaultDownPositions)
-        {
-            if (state.IsKeyDown(Keys.Up) && previousState.IsKeyUp(Keys.Up))
-            {
-                selector.area = toUpArea;
-                selector.index = 0;
-                selector.selected = toUpZone[0];
-                selector.defaultCardPosition = defaultUpPositions[0];
-            }
-            else if (state.IsKeyDown(Keys.Down) && previousState.IsKeyUp(Keys.Down))
-            {
-                selector.area = toDownArea;
-                selector.index = 0;
-                selector.selected = toDownZone[0];
-                selector.defaultCardPosition = defaultDownPositions[0];
-            }
         }
 
         /// <summary>
@@ -368,6 +284,9 @@ namespace Yugioh
 
             // Draw everything in the current frame. Should represent a full snapshot of what's on screen.
             currentFrame.Draw(spriteBatch);
+
+            // Draw the selected card in the draw area. Also handles the small square selector.
+            selector.DrawSelectedCard(spriteBatch, spriteManager);
 
             // Close spriteBatch
             spriteBatch.End();

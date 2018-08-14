@@ -637,3 +637,10 @@
 /processorParam:TextureFormat=Color
 /build:images/card_back.png
 
+#begin fonts/bank_printer.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:fonts/bank_printer.spritefont
+

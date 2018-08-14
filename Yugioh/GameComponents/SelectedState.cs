@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Yugioh.GameComponents
+﻿namespace Yugioh.GameComponents
 {
-    enum SelectedArea
+    enum SelectedState
     {
         P1_HAND,
         P1_MONSTER_ZONE,
@@ -21,6 +15,12 @@ namespace Yugioh.GameComponents
         P2_GRAVEYARD,
         P2_FUZION_DECK,
         P2_FIELD_ZONE,
+        SUMMONING,
+        SETTING_MONSTER,
+        SETTING_MAGIC,
+        SETTING_TRAP,
+        SUMMON_OR_SET,
+        SET_OR_ACTIVATE,
         NONE
     }
 }

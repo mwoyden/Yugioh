@@ -5,10 +5,9 @@ namespace Yugioh.Cards.MonsterCardComponents
 {
     class Sacrifice : MonsterCard
     {
-        public static new void Apply(Player player, Field field, MonsterCard card)
+        public static new void Apply(Player player, Field field, MonsterCard card, int index)
         {
             // Apply to field
-            int index = field.monsterZone.IndexOf(card);
             field.monsterZone.RemoveAt(index);
             field.monsterZone.Insert(index, new Card());
             field.graveYard.Add(card);

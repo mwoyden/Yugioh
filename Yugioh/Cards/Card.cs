@@ -24,12 +24,12 @@ namespace Yugioh.Cards
             // something?
         }
 
-        public void Apply(Player player, Field field, Card card)
+        public void Apply(Player player, Field field, Card card, int index)
         {
             // nothing
         }
 
-        public void Apply(Player player, Field field, MonsterCard card)
+        public void Apply(Player player, Field field, MonsterCard card, int index)
         {
             // nothing
         }

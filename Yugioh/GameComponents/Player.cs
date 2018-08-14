@@ -34,11 +34,8 @@ namespace Yugioh.GameComponents
             var handWithPositions = hand.Zip(handPositions, (c, p) => new { Card = c, Position = p });
             foreach (var pair in handWithPositions)
             {
-                if (pair.Card != null)
-                {
-                    pair.Card.position = pair.Position;
-                    pair.Card.Draw(spriteBatch);
-                }
+                pair.Card.position = pair.Position;
+                pair.Card.Draw(spriteBatch);
             }
             // Above is equal to this vv
             //for (int i = 0; i < hand.Count; i++)
@@ -53,21 +50,16 @@ namespace Yugioh.GameComponents
         {
             int count = 0;
             foreach (Card c in hand)
-            {
                 if (c.sprite != null)
                     count++;
-            }
             if (count == 7)
                 throw new Exception("Shouldn't be drawing cards fren");
             for (int i = 0; i < 7; i++)
-            {
                 if (hand[i].sprite == null)
                 {
-                    hand.Insert(i, card);
+                    hand[i] = card;
                     break;
                 }
-            }
-            
             if (!hand.Contains(card))
                 throw new EntryPointNotFoundException("Could not Draw card?");
         }

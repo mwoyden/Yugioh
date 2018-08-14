@@ -61,11 +61,17 @@ namespace Yugioh
         public Texture2D castleWalls;
         public Texture2D ultimateOffering;
 
+        //Fonts
+        public SpriteFont font;
+
         public SpriteManager(ContentManager content)
         {
             // GameBoard stuff
             gameMat = content.Load<Texture2D>("images/player_mat");
             cardBack = content.Load<Texture2D>("images/card_back");
+
+            // Fonts
+            font = content.Load<SpriteFont>("fonts/bank_printer");
 
             // Cards
             mysticalElf = content.Load<Texture2D>("images/mystical_elf");
