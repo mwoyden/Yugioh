@@ -21,6 +21,8 @@
         SETTING_TRAP,
         SUMMON_OR_SET,
         SET_OR_ACTIVATE,
+        BATTLE_SELECT,
+        ATTACKING,
         NONE
     }
 }

@@ -19,8 +19,18 @@ namespace Yugioh.GameComponents.SelectorHandlers
             {
                 selector.state = SelectedState.P1_MONSTER_ZONE;
                 selector.selected = p1Field.monsterZone[selector.index];
+                selector.defaultPosition = p1Field.monsterPositions[selector.index];
                 Summon.Apply(p1, p1Field, selector.summoning, selector.index);
                 selector.summoning = null;
+                p1.canNormalSummon = false;
+            }
+            else if (state.IsKeyDown(Keys.Back) && previousState.IsKeyUp(Keys.Back))
+            {
+                selector.state = SelectedState.SUMMON_OR_SET;
+                selector.action = SelectedAction.SUMMON;
+                selector.selected = selector.summoning;
+                selector.index = 0;
+                selector.defaultPosition = selectorPositions[0];
             }
         }
     }

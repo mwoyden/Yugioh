@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Yugioh.Cards;
+using Yugioh.Cards.TrapCards;
 
 namespace Yugioh.GameComponents
 {
@@ -152,6 +153,14 @@ namespace Yugioh.GameComponents
                 deck[n] = card;
                 //deck = new Stack<Card>(deckAsArray);
             }
+        }
+
+        public bool HasMonsters()
+        {
+            foreach (Card card in monsterZone)
+                if (card is MonsterCard)
+                    return true;
+            return false;
         }
 
         /// <summary>

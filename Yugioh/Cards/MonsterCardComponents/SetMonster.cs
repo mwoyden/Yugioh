@@ -4,9 +4,9 @@ using System;
 
 namespace Yugioh.Cards.MonsterCardComponents
 {
-    class SetMonster : MonsterCard
+    class SetMonster
     {
-        public static new void Apply(Player player, Field field, MonsterCard card, int index)
+        public static void Apply(Player player, Field field, MonsterCard card, int index)
         {
             bool canSet = true;
 

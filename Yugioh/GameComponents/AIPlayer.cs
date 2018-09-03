@@ -13,7 +13,16 @@ namespace Yugioh.GameComponents
         {
             name = "Yugi";
             lifePoints = 8000;
-            hand = new List<Card>();
+            hand = new List<Card>()
+            {
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card(),
+                new Card()
+            };
             sacrificed = new List<MonsterCard>();
         }
 

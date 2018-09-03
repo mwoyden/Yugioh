@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Yugioh.Cards.CardProperties;
 
-namespace Yugioh.Cards.MagicCards
+namespace Yugioh.Cards.MagicCards.Cards
 {
     class LastWill : MagicCard
     {

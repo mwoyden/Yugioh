@@ -15,9 +15,18 @@ namespace Yugioh.GameComponents.SelectorHandlers
             selector.selected = p1.hand[selector.index];
 
             // Handles up and down
-            HandleUpAndDown(selector, SelectedState.P1_MAGIC_AND_TRAP_ZONE, p1Field.magicAndTrapZone, p1Field.magicAndTrapPositions,
-                                    SelectedState.P2_MAGIC_AND_TRAP_ZONE, p2Field.magicAndTrapZone, p2Field.magicAndTrapPositions,
-                                    state, previousState);
+            PositionController.Builder builder = new PositionController.Builder();
+            PositionController controller = builder.WithSelector(selector)
+                .WithUpArea(SelectedState.P1_MAGIC_AND_TRAP_ZONE)
+                .WithUpZone(p1Field.magicAndTrapZone)
+                .WithUpPositions(p1Field.magicAndTrapPositions)
+                .WithDownArea(SelectedState.P2_MAGIC_AND_TRAP_ZONE)
+                .WithDownZone(p2Field.magicAndTrapZone)
+                .WithDownPositions(p2Field.magicAndTrapPositions)
+                .WithCurrentState(state)
+                .WithPreviousState(previousState)
+                .Build();
+            HandleUpAndDown(controller);
 
             // Handles actions
             if (state.IsKeyDown(Keys.Enter) && previousState.IsKeyUp(Keys.Enter))

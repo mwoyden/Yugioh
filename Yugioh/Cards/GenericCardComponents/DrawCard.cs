@@ -2,9 +2,9 @@
 
 namespace Yugioh.Cards.GenericCardComponents
 {
-    class DrawCard : Card
+    class DrawCard
     {
-        public static new void Apply(Player player, Field field, Card card = null, int index = 0)
+        public static void Apply(Player player, Field field, Card card = null, int index = 0)
         {
             // Apply to field and player
             if (field.deck.Count == 0)

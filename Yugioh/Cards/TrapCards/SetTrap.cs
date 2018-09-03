@@ -1,11 +1,10 @@
-﻿using System;
-using Yugioh.GameComponents;
+﻿using Yugioh.GameComponents;
 
-namespace Yugioh.Cards.MagicAndTrapCardComponents
+namespace Yugioh.Cards.TrapCards
 {
-    class SetMagic : MagicCard
+    class SetTrap
     {
-        public static new void Apply(Player player, Field field, Card card, int index)
+        public static void Apply(Player player, Field field, Card card, int index)
         {
             bool canSet = true;
 

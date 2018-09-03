@@ -3,23 +3,26 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using Yugioh.Cards;
-using Yugioh.Cards.CardProperties;
-using Yugioh.Cards.MonsterCardComponents;
+using Yugioh.Cards.GenericCardComponents;
+using Yugioh.Cards.TrapCards;
 
 namespace Yugioh.GameComponents
 {
     /// <summary>
     /// Player class that defines properties that all players must have.
+    /// Implements drawable so hand can be drawn.
     /// </summary>
     abstract class Player : IDrawable
     {
         // Actual player attributes
         public String name;
         public int lifePoints = 8000;
+        public bool canNormalSummon = true;
+        public Phase currentPhase = Phase.NONE;
         public List<Card> hand = new List<Card>();
         public List<MonsterCard> sacrificed = new List<MonsterCard>();
+        public Dictionary<TrapHook, int> hooks = new Dictionary<TrapHook, int>();
 
         // Draw helper variables
         public List<Vector2> handPositions = new List<Vector2>(7);
@@ -42,8 +45,53 @@ namespace Yugioh.GameComponents
             //{
             //    hand[i].position = handPositions[i];
             //    hand[i].Draw(spriteBatch);
-            //    throw new Exception();
             //}
+        }
+
+        public void Update(GameTime gameTime, Field field)
+        {
+            switch(currentPhase)
+            {
+                case Phase.DRAW:
+                    UpdateDrawPhase(gameTime, field);
+                    return;
+                case Phase.STANDBY:
+                    UpdateStandbyPhase(gameTime, field);
+                    return;
+                case Phase.MAIN:
+                    UpdateMainPhase(gameTime, field);
+                    return;
+                case Phase.BATTLE:
+                    UpdateBattlePhase(gameTime, field);
+                    return;
+                case Phase.MAIN_2:
+                    UpdateMainPhase(gameTime, field);
+                    return;
+                default:
+                    return;
+            }
+        }
+
+        private void UpdateDrawPhase(GameTime gameTime, Field field)
+        {
+            DrawCard.Apply(this, field);
+            currentPhase = Phase.STANDBY;
+        }
+
+        private void UpdateStandbyPhase(GameTime gameTime, Field field)
+        {
+            // resolve effects?
+            currentPhase = Phase.MAIN;
+        }
+
+        private void UpdateMainPhase(GameTime gameTime, Field field)
+        {
+            // nothing?
+        }
+
+        private void UpdateBattlePhase(GameTime gameTime, Field field)
+        {
+            // nothing?
         }
 
         public void Draw(Card card)
@@ -66,9 +114,7 @@ namespace Yugioh.GameComponents
 
         public void Discard(Card card)
         {
-            int index = hand.IndexOf(card);
-            hand.RemoveAt(index);
-            hand.Insert(index, new Card());
+            hand[hand.IndexOf(card)] = new Card();
         }
 
         /// <summary>
@@ -78,8 +124,6 @@ namespace Yugioh.GameComponents
         public bool Play(MonsterCard monster)
         {
             int index = hand.IndexOf(monster);
-            if (index == -1)
-                throw new FieldAccessException("Cannot find " + monster.name + " in hand?");
             if (monster.stars <= 4)
                 return Play(index);
             else if (monster.stars == 5 || monster.stars == 6)
@@ -106,8 +150,7 @@ namespace Yugioh.GameComponents
 
         private bool Play(int index)
         {
-            hand.RemoveAt(index);
-            hand.Insert(index, new Card());
+            hand[index] = new Card();
             return true;
         }
 

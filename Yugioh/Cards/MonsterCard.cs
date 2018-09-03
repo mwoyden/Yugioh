@@ -15,6 +15,9 @@ namespace Yugioh.Cards
         public int defense;
         public bool effect;
         public int stars;
+        public bool canAttack;
+        public bool canAttackDirectly;
+        public bool canChangePosition;
         public MonsterType monsterType;
         public MonsterSubType subType;
         public MonsterAttribute attribute;
@@ -30,6 +33,9 @@ namespace Yugioh.Cards
             attack = 0;
             defense = 0;
             effect = false;
+            canAttack = true;
+            canAttackDirectly = false;
+            canChangePosition = false;
             stars = 0;
             monsterType = MonsterType.NONE;
             subType = MonsterSubType.NONE;
@@ -39,16 +45,16 @@ namespace Yugioh.Cards
 
         public new void Draw(SpriteBatch spriteBatch)
         {
-            if (sprite != null)
+            if (sprite == null)
+                return;
+            if (mode.Equals(MonsterPosition.ATTACK))
+                spriteBatch.Draw(sprite, position, null, Color.White, 0, new Vector2(0, 0), 0.22f, SpriteEffects.None, 1.0f);
+            else if (mode.Equals(MonsterPosition.FACE_DOWN_DEFENSE) || mode.Equals(MonsterPosition.DEFENSE))
             {
-                if (mode.Equals(MonsterPosition.ATTACK))
-                    spriteBatch.Draw(sprite, position, null, Color.White, 0, new Vector2(0, 0), 0.22f, SpriteEffects.None, 1.0f);
-                else if (mode.Equals(MonsterPosition.FACE_DOWN_DEFENSE) || mode.Equals(MonsterPosition.DEFENSE))
-                {
-                    Vector2 origin = new Vector2(sprite.Width / 2f - 250, sprite.Height / 2f + 170); // yeah idfk
-                    spriteBatch.Draw(sprite, position, null, Color.White, (float)Math.PI / 2.0f, origin, 0.22f, SpriteEffects.None, 1.0f);
-                }
+                Vector2 origin = new Vector2(sprite.Width / 2f - 250, sprite.Height / 2f + 170); // yeah idfk
+                spriteBatch.Draw(sprite, position, null, Color.White, (float)Math.PI / 2.0f, origin, 0.22f, SpriteEffects.None, 1.0f);
             }
+
         }
     }
 }

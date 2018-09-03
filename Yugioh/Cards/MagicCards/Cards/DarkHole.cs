@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-
 using Yugioh.Cards.CardProperties;
+using Yugioh.Cards.MagicCards.Effects;
 
-namespace Yugioh.Cards.MagicCards
+namespace Yugioh.Cards.MagicCards.Cards
 {
     class DarkHole : MagicCard
     {
@@ -16,6 +16,7 @@ namespace Yugioh.Cards.MagicCards
             name = "Dark Hole";
             cardText = "Destroy all monsters on the field.";
             magicType = MagicType.NORMAL;
+            effect = new DarkHoleEffect();
         }
     }
 }

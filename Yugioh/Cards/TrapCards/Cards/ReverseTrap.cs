@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Yugioh.Cards.CardProperties;
 
-namespace Yugioh.Cards.TrapCards
+namespace Yugioh.Cards.TrapCards.Cards
 {
     class ReverseTrap : TrapCard
     {

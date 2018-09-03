@@ -20,7 +20,7 @@ namespace Yugioh.GameComponents.SelectorHandlers
             //else if (up or down do nothing rn)
 
             // Select Action
-            if (state.IsKeyDown(Keys.Enter) && previousState.IsKeyUp(Keys.Enter))
+            if (state.IsKeyDown(Keys.Enter) && previousState.IsKeyUp(Keys.Enter) && p1.canNormalSummon)
             {
                 if (selector.action.Equals(SelectedAction.SUMMON))
                     selector.state = SelectedState.SUMMONING;
@@ -29,6 +29,14 @@ namespace Yugioh.GameComponents.SelectorHandlers
 
                 selector.selected = p1Field.monsterZone[0];
                 selector.defaultPosition = p1Field.monsterPositions[0];
+            }
+            else if (state.IsKeyDown(Keys.Back) && previousState.IsKeyUp(Keys.Back))
+            {
+                selector.state = SelectedState.P1_HAND;
+                selector.action = SelectedAction.NONE;
+                selector.index = p1.hand.IndexOf(selector.summoning);
+                selector.selected = selector.summoning;
+                selector.summoning = null;
             }
         }
     }

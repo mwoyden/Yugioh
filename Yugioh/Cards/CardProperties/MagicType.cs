@@ -8,6 +8,6 @@
         FIELD,
         QUICK_PLAY,
         RITUAL,
-        NONE
+        NONE,
     }
 }

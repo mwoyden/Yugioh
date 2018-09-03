@@ -10,6 +10,7 @@ namespace Yugioh.GameComponents
     {
         public Texture2D line;
         public Card selected;
+        public MonsterCard attacking;
         public MonsterCard summoning;
         public MagicCard settingMagic;
         public TrapCard settingTrap;
@@ -29,7 +30,8 @@ namespace Yugioh.GameComponents
         public List<Vector2> actionPositions = new List<Vector2>()
         {
             new Vector2(822, 688),
-            new Vector2(972, 688)
+            new Vector2(972, 688),
+            new Vector2(822, 722),
         };
 
         public Selector(SpriteBatch spriteBatch, Card card)
@@ -42,6 +44,7 @@ namespace Yugioh.GameComponents
             // Other selector variables
             color = Color.Black;
             selected = card;
+            attacking = null; //idk
             summoning = null; //idk
             settingMagic = null; //idk
             settingTrap = null; //idk
@@ -50,9 +53,16 @@ namespace Yugioh.GameComponents
             index = 0;
         }
 
+        // Draw the selector border or the little square selector
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (state.Equals(SelectedState.SUMMON_OR_SET) || state.Equals(SelectedState.SET_OR_ACTIVATE))
+            List<SelectedState> drawSquareSelectorStates = new List<SelectedState>()
+            {
+                SelectedState.SUMMON_OR_SET,
+                SelectedState.SET_OR_ACTIVATE,
+                SelectedState.BATTLE_SELECT,
+            };
+            if (drawSquareSelectorStates.Contains(state))
                 spriteBatch.Draw(line, new Rectangle((int)defaultPosition.X, (int)defaultPosition.Y, 10, 10), color);
             if (selected.sprite == null) // Draw the selector around the given image border
                 DrawBorder(spriteBatch, (int)defaultPosition.X, (int)defaultPosition.Y, (int)defaultCardSize.X, (int)defaultCardSize.Y);
@@ -88,16 +98,16 @@ namespace Yugioh.GameComponents
                 // Draws a zoomed image of the selected card
                 spriteBatch.Draw(selected.sprite, zoomSpritePosition, null, Color.White, 0, new Vector2(0, 0), 0.9f, SpriteEffects.None, 1.0f);
 
-                // States in which we still want to draw the options
-                List<SelectedState> drawStates = new List<SelectedState>()
+                // States in which we still want to draw the options from your hand
+                List<SelectedState> drawInHandOptions = new List<SelectedState>()
                 {
                     SelectedState.P1_HAND,
                     SelectedState.SUMMON_OR_SET,
-                    SelectedState.SET_OR_ACTIVATE
+                    SelectedState.SET_OR_ACTIVATE,
                 };
 
                 // Draws the appropriate actions depending on what type of card you selected
-                if (drawStates.Contains(state))
+                if (drawInHandOptions.Contains(state))
                 {
                     if (selected is MonsterCard)
                     {
@@ -113,6 +123,19 @@ namespace Yugioh.GameComponents
                     {
                         spriteBatch.DrawString(spriteManager.font, "Set", actionPositions[0], Color.Black);
                     }
+                }
+
+                // States in which we still want to draw the options from the field
+                List<SelectedState> drawOnFieldOptions = new List<SelectedState>()
+                {
+                    SelectedState.BATTLE_SELECT,
+                    SelectedState.P1_MONSTER_ZONE,
+                };
+                if (drawOnFieldOptions.Contains(state))
+                {
+                    spriteBatch.DrawString(spriteManager.font, "Attack", actionPositions[0], Color.Black);
+                    spriteBatch.DrawString(spriteManager.font, "Defend", actionPositions[1], Color.Black);
+                    spriteBatch.DrawString(spriteManager.font, "Sacrifice", actionPositions[2], Color.Black);
                 }
             }
         }

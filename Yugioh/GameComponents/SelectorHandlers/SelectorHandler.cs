@@ -11,21 +11,19 @@ namespace Yugioh.GameComponents.SelectorHandlers
         public static readonly List<Vector2> selectorPositions = new List<Vector2>()
         {
             new Vector2(810, 696), //[0]
-            new Vector2(960, 696) //[1]
+            new Vector2(960, 696), //[1]
+            new Vector2(810, 726), //[2]
         };
 
-        public void HandleInZone(Selector selector, List<Card> activeZone, List<Vector2> activeZonePositions,
-                                SelectedState toUpArea, SelectedState toDownArea, List<Card> toUpZone, List<Card> toDownZone, 
-                                List<Vector2> defaultUpPositions, List<Vector2> defaultDownPositions,
-                                KeyboardState state, KeyboardState previousState)
+        public void HandleInZone(PositionController c)
         {
             // Handles setting the selected card in the zone
-            if (activeZone[selector.index].sprite == null)
-                selector.defaultPosition = activeZonePositions[selector.index];
-            selector.selected = activeZone[selector.index];
+            if (c.activeZone[c.selector.index].sprite == null)
+                c.selector.defaultPosition = c.activeZonePositions[c.selector.index];
+            c.selector.selected = c.activeZone[c.selector.index];
 
             // Handles up and down
-            HandleUpAndDown(selector, toUpArea, toUpZone, defaultUpPositions, toDownArea, toDownZone, defaultDownPositions, state, previousState);
+            HandleUpAndDown(c);
         }
 
         public void HandleLeftRightWithMaxIndex(Selector selector, KeyboardState state, KeyboardState previousState, int max)
@@ -64,25 +62,29 @@ namespace Yugioh.GameComponents.SelectorHandlers
             }
         }
 
-        public void HandleUpAndDown(Selector selector, SelectedState toUpArea, List<Card> toUpZone, List<Vector2> defaultUpPositions,
-                                                  SelectedState toDownArea, List<Card> toDownZone, List<Vector2> defaultDownPositions,
-                                                  KeyboardState state, KeyboardState previousState)
+        public void HandleUpAndDown(PositionController c)
         {
             // logic here to make navigating more natural (move to closest index in up/down zone
-            if (state.IsKeyDown(Keys.Up) && previousState.IsKeyUp(Keys.Up))
+            if (c.state.IsKeyDown(Keys.Up) && c.previousState.IsKeyUp(Keys.Up))
             {
-                selector.state = toUpArea;
-                selector.index = FindClosestIndex(selector.index, toUpZone);
-                selector.selected = toUpZone[selector.index];
-                selector.defaultPosition = defaultUpPositions[selector.index];
+                c.selector.state = c.toUpArea;
+                c.selector.index = FindClosestIndex(c.selector.index, c.toUpZone);
+                c.selector.selected = c.toUpZone[c.selector.index];
+                c.selector.defaultPosition = c.defaultUpPositions[c.selector.index];
             }
-            else if (state.IsKeyDown(Keys.Down) && previousState.IsKeyUp(Keys.Down))
+            else if (c.state.IsKeyDown(Keys.Down) && c.previousState.IsKeyUp(Keys.Down))
             {
-                selector.state = toDownArea;
-                selector.index = FindClosestIndex(selector.index, toDownZone);
-                selector.selected = toDownZone[selector.index];
-                selector.defaultPosition = defaultDownPositions[selector.index];
+                c.selector.state = c.toDownArea;
+                c.selector.index = FindClosestIndex(c.selector.index, c.toDownZone);
+                c.selector.selected = c.toDownZone[c.selector.index];
+                c.selector.defaultPosition = c.defaultDownPositions[c.selector.index];
             }
+        }
+
+        public void HandlePhaseTransitions(Player p1)
+        {
+            if (p1.currentPhase.Equals(Phase.BATTLE))
+                p1.currentPhase = Phase.MAIN_2;
         }
 
         // Helper method to make transitioning through zones much smoother
@@ -91,6 +93,98 @@ namespace Yugioh.GameComponents.SelectorHandlers
             if (selectorIndex >= toZone.Count)
                 return toZone.Count - 1;
             return selectorIndex;
+        }
+
+        // Used for readability in HandleUpAndDown (switching zones)
+        internal class PositionController
+        {
+            public Selector selector;
+            public List<Card> activeZone;
+            public List<Vector2> activeZonePositions;
+            public SelectedState toUpArea;
+            public SelectedState toDownArea;
+            public List<Card> toUpZone;
+            public List<Card> toDownZone;
+            public List<Vector2> defaultUpPositions;
+            public List<Vector2> defaultDownPositions;
+            public KeyboardState state;
+            public KeyboardState previousState;
+
+            internal class Builder
+            {
+                public PositionController controller = new PositionController();
+
+                public Builder WithSelector(Selector selector)
+                {
+                    controller.selector = selector;
+                    return this;
+                }
+
+                public Builder WithActiveZone(List<Card> activeZone)
+                {
+                    controller.activeZone = activeZone;
+                    return this;
+                }
+
+                public Builder WithActiveZonePositions(List<Vector2> activeZonePositions)
+                {
+                    controller.activeZonePositions = activeZonePositions;
+                    return this;
+                }
+
+                public Builder WithUpArea(SelectedState toUpArea)
+                {
+                    controller.toUpArea = toUpArea;
+                    return this;
+                }
+
+                public Builder WithDownArea(SelectedState toDownArea)
+                {
+                    controller.toDownArea = toDownArea;
+                    return this;
+                }
+
+                public Builder WithUpZone(List<Card> toUpZone)
+                {
+                    controller.toUpZone = toUpZone;
+                    return this;
+                }
+
+                public Builder WithDownZone(List<Card> toDownZone)
+                {
+                    controller.toDownZone = toDownZone;
+                    return this;
+                }
+
+                public Builder WithUpPositions(List<Vector2> upPositions)
+                {
+                    controller.defaultUpPositions = upPositions;
+                    return this;
+                }
+
+                public Builder WithDownPositions(List<Vector2> downPositions)
+                {
+                    controller.defaultDownPositions = downPositions;
+                    return this;
+                }
+
+                public Builder WithCurrentState(KeyboardState state)
+                {
+                    controller.state = state;
+                    return this;
+                }
+
+                public Builder WithPreviousState(KeyboardState previousState)
+                {
+                    controller.previousState = previousState;
+                    return this;
+                }
+
+                public PositionController Build()
+                {
+                    return this.controller;
+                }
+            }
         }
     }
 }

@@ -6,6 +6,8 @@
         SET,
         SACRIFICE,
         ACTIVATE,
+        ATTACK,
+        DEFEND,
         NONE
     }
 }

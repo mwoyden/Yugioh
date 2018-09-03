@@ -1,4 +1,7 @@
 ﻿using Yugioh.Cards.CardProperties;
+using Yugioh.Cards.MagicCards;
+using Yugioh.Cards.MagicCards.Effects;
+using Yugioh.GameComponents;
 
 namespace Yugioh.Cards
 {
@@ -7,10 +10,6 @@ namespace Yugioh.Cards
         // Magic Card properties
         public MagicType magicType = MagicType.NONE;
         public bool activated = false;
-
-        public void Apply(MagicCard card)
-        {
-            // nothing
-        }
+        public MagicEffect effect = null;
     }
 }

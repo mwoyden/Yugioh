@@ -12,6 +12,7 @@ namespace Yugioh.Cards
         public Vector2 position = new Vector2(0, 0);
         public String name = "no name";
         public String cardText = "no text";
+        public bool notAffectByMagicCards = false;
 
         public void Draw(SpriteBatch spriteBatch)
         {
